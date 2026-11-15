@@ -1,0 +1,175 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: #0d0d13;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  padding: 24px;
+  font-family: Arial, sans-serif;
+  color: #fff;
+}
+
+.page {
+  width: min(100%, 760px);
+}
+
+header {
+  text-align: center;
+  margin-bottom: 26px;
+}
+
+h1 {
+  margin: 0;
+  color: #8abaff;
+  font-size: clamp(21px, 4vw, 30px);
+  text-shadow: 0 0 10px #347fe8;
+}
+
+header p {
+  color: #8992a5;
+  font-size: 12px;
+  margin-top: 10px;
+}
+
+.demo {
+  min-height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #09090e;
+  border: 1px solid #242431;
+  border-radius: 8px;
+}
+
+.liquid-button {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding: 18px 45px;
+  background-color: #ff007f;
+  color: #fff;
+  border: none;
+  border-radius: 30px;
+  font-size: 18px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: background-color 0.35s ease, border-radius 0.35s ease;
+}
+
+.btn-text {
+  position: relative;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.blob {
+  position: absolute;
+  top: 50%;
+  width: 30px;
+  height: 30px;
+  background: #ff007f;
+  border-radius: 50%;
+  transform: translateY(-50%) scale(0);
+  transition: transform 0.6s ease, background-color 0.35s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.blob:nth-of-type(2) {
+  left: 10%;
+  transition-delay: 0s;
+}
+
+.blob:nth-of-type(3) {
+  left: 30%;
+  transition-delay: 0.1s;
+}
+
+.blob:nth-of-type(4) {
+  left: 50%;
+  transition-delay: 0.05s;
+}
+
+.blob:nth-of-type(5) {
+  left: 60%;
+  transition-delay: 0.1s;
+}
+
+.blob:nth-of-type(6) {
+  left: 85%;
+  transition-delay: 0.15s;
+}
+
+.liquid-button:hover .blob,
+.liquid-button.is-active .blob {
+  transform: translateY(-50%) scale(3.5);
+}
+
+.liquid-button:hover,
+.liquid-button.is-active {
+  background-color: #ff3399;
+}
+
+.liquid-button:hover .blob,
+.liquid-button.is-active .blob {
+  background-color: #3c82e8;
+}
+
+.liquid-button:focus-visible {
+  outline: 2px solid #8abaff;
+  outline-offset: 5px;
+}
+
+.source {
+  margin-top: 18px;
+  padding: 15px 18px;
+  background: #111117;
+  border: 1px solid #282832;
+  border-radius: 8px;
+}
+
+.source-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+  color: #a4a4b4;
+  font-size: 11px;
+}
+
+#copy-css {
+  border: 1px solid #414152;
+  background: #20202b;
+  color: #e6e6f0;
+  border-radius: 5px;
+  padding: 6px 10px;
+  font-size: 10px;
+  cursor: pointer;
+}
+
+pre {
+  margin: 0;
+  max-height: 260px;
+  overflow: auto;
+  white-space: pre-wrap;
+  color: #8bc5ff;
+  font: 11px/1.6 ui-monospace, SFMono-Regular, Consolas, monospace;
+}
+
+@media (max-width: 520px) {
+  body { padding: 16px; }
+  .demo { min-height: 190px; }
+  .source { padding: 13px 11px; }
+  pre { font-size: 10px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition-duration: 0.01ms !important; }
+}
